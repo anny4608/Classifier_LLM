@@ -1,9 +1,11 @@
 import streamlit as st
 import os
-from langchain.vectorstores import FAISS
-from langchain.schema import HumanMessage
+
+from langchain_community.vectorstores import FAISS
+from langchain_core.messages import HumanMessage
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_community.embeddings import HuggingFaceEmbeddings
+
 
 # --- Environment Variable Check ---
 # Using st.secrets for Streamlit deployment, with a fallback for local development
