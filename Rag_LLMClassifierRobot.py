@@ -169,7 +169,7 @@ classification_key_terms = [
 
 qa_chain = RetrievalQA.from_chain_type(llm=llm, retriever=retriever)
 
-"""#### 定義真正的心靈處方籤主函式
+"""#### 定義真正的主函式
 
 注意最主要還是設計 `prompt` 的型式。
 """
@@ -207,7 +207,6 @@ def answer_user_question(question):
 
     return final_response.content
 
-# 備註：由於我們不再隨機抽取，原有的 print(f"你抽到的心靈處方籤: {chosen_prescription}") 語句已移除。
 
 # 使用範例：回答一個機器學習問題 (請確保問題與您的 PDF 文件內容相關)
 user_question = "如果面對一個非線性資料集，SVM 中的核函數 (Kernel Function) 是什麼？它如何幫助解決這個問題？"
@@ -215,7 +214,7 @@ response = answer_user_question(user_question)
 
 print(f'\n經過機器人得到的內容是 \n==================== \n{response}')
 
-# 確保您已經在 Step 4 成功建立了 vector_store 變數
+# 確保已經在 Step 4 成功建立了 vector_store 變數
 # 將向量庫儲存到名為 'faiss_index' 的資料夾中
 vector_store.save_local("faiss_index")
 
