@@ -87,22 +87,64 @@ def get_answer(question: str, retriever, llm):
     final_response = llm.invoke([HumanMessage(content=prompt)])
     return final_response.content
 
+
 # --- Streamlit App UI ---
-st.title("分類器機器人")
-st.write("一個使用 RAG 技術的機器學習分類器問答機器人。")
+# 設置頁面配置，加入圖示和更專業的標題
+st.set_page_config(
+    page_title="🤖 ML 智慧 RAG 分析專家",
+    layout="wide" # 使用寬版佈局，讓介面更開闊
+)
 
-# Load resources
-retriever = load_retriever()
-llm = load_llm()
+st.title("🤖 機器學習 RAG 分析專家")
 
-# User input
-user_question = st.text_input("請輸入您的問題：")
+# 1. 將技術指導原則移到側邊欄或折疊區，讓主介面更乾淨
+with st.sidebar:
+    st.header("⚙️ 專業設置與指導原則")
+    st.markdown("這個機器人嚴格遵循下列技術指導，以提供專業且精準的答案：")
+    
+    # 使用折疊區顯示詳細的技術定義
+    with st.expander("🛠️ 核心技術指導原則 (點擊查看)"):
+        # 這裡直接引用 get_answer 函數中的 technical_guidance 內容 (假設您將它移到了全域或作為參數傳入)
+        # 為了讓程式碼可執行，這裡簡化為重新定義，實際部署時請確保變數可訪問
+        classification_key_terms = [
+            "SVM：核心概念是尋找一個最大邊界 (Maximum Margin) 的超平面...",
+            "當回答關於分類器的問題時，請先解釋該模型的**核心原理**與**關鍵參數**...", 
+            # ... (這裡應該放入完整的 classification_key_terms 列表內容)
+        ]
+        st.code('\n'.join(classification_key_terms[:2]) + '\n...') # 顯示部分內容
 
-if st.button("取得答案"):
+    st.markdown("---")
+    st.markdown("🌐 **Powered by Gemini & LangChain**")
+
+
+# 2. 建立主要的問答容器
+st.header("🤔 提問區")
+st.write("請輸入您的機器學習分類器問題，例如：如何避免隨機森林的過擬合？")
+
+# 使用 st.form 來美化輸入區塊和按鈕
+with st.form("question_form", clear_on_submit=True):
+    user_question = st.text_area(
+        "問題輸入：",
+        placeholder="請輸入關於 SVM、隨機森林、或模型評估指標的專業問題...",
+        height=100
+    )
+    submit_button = st.form_submit_button("取得專業分析 🚀")
+
+# 3. 處理點擊與輸出
+if submit_button:
     if user_question:
-        with st.spinner("正在生成答案..."):
+        with st.spinner("🧠 機器人正在分析文件中，請稍候..."):
+            # 確保 retriever 和 llm 已載入
+            retriever = load_retriever()
+            llm = load_llm()
+            
             response = get_answer(user_question, retriever, llm)
-            st.write("### 答案：")
-            st.markdown(response) # Use markdown for better formatting
+            
+            # 使用 st.container 和 st.success 讓結果更醒目
+            st.subheader("✅ 專業回答")
+            st.info(response)
+            
+            # 可選：新增一個下載按鈕
+            # st.download_button(label="下載回答", data=response, file_name="analysis_result.txt")
     else:
-        st.warning("請先輸入問題。")
+        st.warning("請先輸入問題！")
