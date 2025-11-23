@@ -53,7 +53,7 @@ def get_answer(question: str, retriever, llm):
     Answers a user question using RAG with technical guidance.
     """
     # 1. Retrieve relevant documents
-    docs = retriever.get_relevant_documents(question)
+    docs = retriever.invoke(question)
     context = "\n\n".join([doc.page_content for doc in docs])
 
     # 2. Define technical guidance
