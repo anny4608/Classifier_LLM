@@ -1,11 +1,26 @@
+streamlit
+
+# LangChain Core Packages
+langchain
+langchain-core
+langchain-community
+
+# Vector DB
+faiss-cpu
+
+# Embeddings
+sentence-transformers
+
+# LLM Providers
+langchain-google-genai
+openai
+
+# PDF / NLP
 pypdf
 nltk
-langchain
-langchain-community
-openai
-faiss-cpu
-unstructured
+
+# Tokenizer
 tiktoken
-langchain-google-genai
-sentence-transformers
-streamlit
+
+# Document loader
+unstructured
