@@ -1,0 +1,11 @@
+pypdf
+nltk
+langchain
+langchain-community
+openai
+faiss-cpu
+unstructured
+tiktoken
+langchain-google-genai
+sentence-transformers
+streamlit
