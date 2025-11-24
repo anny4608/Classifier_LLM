@@ -2,7 +2,7 @@
 
 This project implements a Retrieval-Augmented Generation (RAG) chatbot designed to answer questions about machine learning classifiers based on a provided set of PDF documents. It leverages Google's Gemini model for generation and HuggingFace embeddings with FAISS for efficient document retrieval. The application can be run as a local Python script or deployed as an interactive web application using Streamlit.
 
-## 🤖 Demo site(因為有使用gemini api，api，所以學期結束就會關閉)
+## 🤖 Demo site(因為有使用gemini api，所以學期結束就會關閉)
 https://classifierllm.streamlit.app/
 ## Features
 
