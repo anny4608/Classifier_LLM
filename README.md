@@ -95,7 +95,7 @@ streamlit run streamlit_app.py
 ```
 This command will open the Streamlit app in your web browser, usually at `http://localhost:8501`.
 
-##🤖 Deployment to Streamlit Community Cloud
+## 🤖 Deployment to Streamlit Community Cloud
 
 To deploy your chatbot as a public web application:
 
