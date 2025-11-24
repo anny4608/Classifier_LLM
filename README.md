@@ -1,8 +1,8 @@
-# RAG-based Classifier Chatbot
+# 🤖 RAG-based Classifier Chatbot
 
 This project implements a Retrieval-Augmented Generation (RAG) chatbot designed to answer questions about machine learning classifiers based on a provided set of PDF documents. It leverages Google's Gemini model for generation and HuggingFace embeddings with FAISS for efficient document retrieval. The application can be run as a local Python script or deployed as an interactive web application using Streamlit.
 
-## Demo si因為有使用gemini api，api，所以學期結束就會關閉)
+## 🤖 Demo site(因為有使用gemini api，api，所以學期結束就會關閉)
 https://classifierllm.streamlit.app/
 ## Features
 
@@ -12,7 +12,7 @@ https://classifierllm.streamlit.app/
 *   **Local Script:** A command-line interface (`app.py`) for testing the RAG functionality.
 *   **Streamlit Web App:** An interactive web interface (`streamlit_app.py`) for a user-friendly experience.
 
-## Prerequisites
+## 🤖 Prerequisites
 
 Before you begin, ensure you have the following:
 
@@ -20,7 +20,7 @@ Before you begin, ensure you have the following:
 *   **Google API Key:** Obtain one from the [Google AI Studio](https://aistudio.google.com/app/apikey). This key will be used to access the Gemini model.
 *   **Git LFS (Large File Storage):** If your `faiss_index/index.faiss` file is expected to be large (over 100MB), you will need Git LFS to manage it in your GitHub repository for Streamlit deployment. Install it from [git-lfs.github.com](https://git-lfs.github.com/).
 
-## Setup
+## 🤖 Setup
 
 1.  **Clone the Repository:**
     ```bash
@@ -75,7 +75,7 @@ Before you begin, ensure you have the following:
         ```
     Replace `YOUR_API_KEY` with your actual key.
 
-## Usage
+## 🤖 Usage
 
 ### Local Command-Line Application (`app.py`)
 
@@ -95,7 +95,7 @@ streamlit run streamlit_app.py
 ```
 This command will open the Streamlit app in your web browser, usually at `http://localhost:8501`.
 
-## Deployment to Streamlit Community Cloud
+##🤖 Deployment to Streamlit Community Cloud
 
 To deploy your chatbot as a public web application:
 
@@ -136,7 +136,7 @@ To deploy your chatbot as a public web application:
 └── README.md               # Project README file
 ```
 
-## Acknowledgements
+## 🤖 Acknowledgements
 
 *   The PDF lecture notes "資料科學與回歸分析講義" are used as the knowledge base for this chatbot.
 *   Built with LangChain, Streamlit, and Google Gemini.
